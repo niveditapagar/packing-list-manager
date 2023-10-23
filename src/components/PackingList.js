@@ -1,6 +1,11 @@
 import Item from "./Item";
 
-export default function PackingList({ items, onDeleteItem, onToggleItem }) {
+export default function PackingList({
+  items,
+  onDeleteItem,
+  onToggleItem,
+  onClearList,
+}) {
   return (
     <div className="list">
       <ul>
@@ -20,7 +25,7 @@ export default function PackingList({ items, onDeleteItem, onToggleItem }) {
           <option value="packed">Sort by packed status</option>
         </select>
 
-        <button>Clear List</button>
+        <button onClick={onClearList}>Clear List</button>
       </div>
     </div>
   );
