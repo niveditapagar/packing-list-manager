@@ -7,10 +7,12 @@ export default function PackingList({
   onToggleItem,
   onClearList,
 }) {
+  // State to manage the sorting criteria for items
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems;
 
+  // Check the sorting criteria and assign the appropriate sorted items
   if (sortBy === "input") {
     sortedItems = items;
   }
@@ -29,6 +31,7 @@ export default function PackingList({
   return (
     <div className="list">
       <ul>
+        {/* Map and render the sorted items using the Item component */}
         {sortedItems.map((item) => (
           <Item
             item={item}
@@ -39,12 +42,14 @@ export default function PackingList({
         ))}
       </ul>
       <div className="actions">
+        {/* Dropdown for selecting the sorting criteria */}
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="input">Sort by input order</option>
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
 
+        {/* Button to clear the entire list */}
         <button onClick={onClearList}>Clear List</button>
       </div>
     </div>
